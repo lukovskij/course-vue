@@ -17,7 +17,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <router-link tag="li" to="/list" active-class="active" exact>
+          <router-link tag="li" to="/list/page/1" active-class="active" exact>
             <a>Home</a>
           </router-link>
           <router-link tag="li" to="/user/add" active-class="active" exact>

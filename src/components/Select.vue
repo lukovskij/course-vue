@@ -23,6 +23,9 @@
        colElem(){
            this.$emit('changeItems', this.colElem);
        }  
+     },
+     mounted(){
+         this.$emit('changeItems', this.colElem);
      }
   }
 

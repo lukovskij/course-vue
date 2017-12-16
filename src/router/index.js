@@ -15,7 +15,8 @@ export default new Router({
       component: Index
     },
     {
-      path: '/list',
+      path: '/list/page/:page',
+      props : true,
       component: Table
     },
     {
@@ -26,6 +27,6 @@ export default new Router({
       path: '/user/:id',
       component: UserEdit,
       props: true
-    }
+    },
   ]
 })

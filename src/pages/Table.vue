@@ -31,27 +31,30 @@
         </tr>
       </tbody>
     </table>
+    <pagination :displayItem="choseElem"></pagination>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import Select from '@/components/Select.vue'
+import Pagination from '@/components/Pagination.vue'
 
   export default {
     name: 'Table',
     data: () => ({
         url : 'http://localhost:3000/users/',
         users : [],
-        choseElem : 5,
-        page : 1
+        choseElem : 0,
     }),
+    props : {
+      page : String
+    },
     methods : {
         loadData(){
            axios.get(`${this.url}?_page=${this.page}&_limit=${this.choseElem}`)
            .then(resp => resp.data)
            .then(resp =>{
-             console.log(resp)
                this.users = resp;
            })
         },
@@ -64,13 +67,15 @@ import Select from '@/components/Select.vue'
       choseElem(){
         console.log(this.choseElem);
         this.loadData();
-      }
+      },
+      $route : 'loadData'
     },
     mounted : function(){
        this.loadData();
     },
     components : {
-       'select-elements' : Select 
+       'select-elements' : Select,
+       'pagination' : Pagination
     }
   }
 
