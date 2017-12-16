@@ -65,8 +65,8 @@ import Pagination from '@/components/Pagination.vue'
     },
     watch : {
       choseElem(){
-        console.log(this.choseElem);
         this.loadData();
+        this.$router.push({path : '/list/page/1'})
       },
       $route : 'loadData'
     },
